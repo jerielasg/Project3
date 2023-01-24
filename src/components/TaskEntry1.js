@@ -9,12 +9,7 @@ import { onValue, ref, getDatabase, push } from 'firebase/database';
 
 function App() {
 
-    // const entry = {
-    //     name: name,
-    //     taskCat: taskCat,
-    //     comment: comment
-    // }
-    const  [tasks, setTasks] = useState([]);
+    //const  [tasks, setTasks] = useState([]);
     const [name, setName] = useState();
     const [taskCat, setTaskCat] = useState();
     const [comment, setComment] = useState();
@@ -26,6 +21,7 @@ function App() {
 
         onValue(dbRef, (dbResponse) => {
             const dbValue = dbResponse.val();
+            console.log(dbValue)
             const arrayTasks = [];
 
                 for (let propertyKey in dbValue) {
@@ -56,13 +52,6 @@ function App() {
         setName("");
     };
 
-    // const submit = () => {
-    //     db.ref("user").set({
-    //         name: name,
-    //         taskCat: taskCat,
-    //         comment: comment
-    //     }).catch(alert);
-    // }
 
     return (
         <div className="taskEntry" >
