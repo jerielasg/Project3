@@ -1,34 +1,40 @@
 import './App.css';
+import { Link, Routes, Route } from 'react-router-dom';
 // import TaskData from './components/TaskData';
-// import TaskEntry from './components/TaskEntry';
+import TaskEntry1 from './components/TaskEntry1';
 // import TaskMain from './components/TaskMain';
 // import TaskHolder from './components/TaskHolder';
-import './firebase';
-
-import { push, ref, getDatabase }
+// import TaskFirst from './components/TaskFirst';
 
 
 function App() {
-  const firebaseObj = push(dbRef, "first push to Firebase");
-  // const[list, setList] = useState([]);
-  // useEffect(() => {
-  //   const database = getDatabase(firebase)
-  //   const dbRef = ref(database)
 
-  //   onValue(dbRef, (response) => {
-  //     console.log(response.val());
-  //   })
-  // }, [])
   return (
    <main>
-      <ul>
-        <h1>Test</h1>
-      </ul>
+      <div className='intro'>
+        <h1>Welcome to the Task Tracker</h1>
+        <h2>Instructions</h2>
+        <p>Click on one of the links to get started. Enter your information and click the submit button</p>
+      </div>
+      <nav>
+        <ul className='links'>
+          <button className='buttonLink'><Link to="/entry">Task Entry</Link></button>
+          <button className='buttonLink'><Link to="/edit">Task Edit</Link></button>
+          
+        </ul>
+      </nav>
+    
       {/* <TaskMain />
       <TaskEntry />
       <TaskHolder />
       <TaskData /> */}
+      
 
+      <Routes>
+        <Route path="/entry" element= {<TaskEntry1 />} />
+        {/* <Route path="/edit" element={<TaskHolder />} /> */}
+
+      </Routes>
    </main>
   );
 }

@@ -36,3 +36,47 @@
     transform: rotate(360deg);
   }
 }
+
+/* #2b6777(darkTeal) #c8d8e4(lighter teal) #ffffff(white) #f2f2f2(off White) #52ab98(green) */
+
+.intro {
+  background-color:#2b6777 ;
+  padding: 20px 20px 20px 20px;
+  text-align: center;
+
+}
+h1 {
+  font-family: Verdana, Geneva, Tahoma, sans-serif ;
+  color: #f2f2f2;
+  font-size: 50px;
+}
+
+h2 {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: #ffffff;
+}
+
+li {
+  list-style-type: none;
+
+}
+
+.links {
+  text-align: center;
+}
+
+.buttonLink {
+  background-color: #52ab98;
+  padding: 40px 40px 40px 40px;
+  margin-left: 50px;
+  margin-right: 50px;
+  font-size: 30px;
+}
+
+.taskEntry {
+  background-color: #c8d8e4;
+  padding-top: 200px;
+  padding-bottom: 2000px;
+  text-align: center;
+  
+}
