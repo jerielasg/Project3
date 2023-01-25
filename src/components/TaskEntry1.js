@@ -41,39 +41,44 @@ function App() {
     }, []);
 
         const handleSubmit = (event) => {
-        event.preventdefault();
+            event.preventDefault();
         const db = getDatabase(firebase);
         const dbRef = ref(db);
 
-        const tasks = {}
+        const tasks = {
+            userName: name,
+            userTask: taskCat,
+            userComment: comment
+        }
 
         push(dbRef,tasks);
-
+            
         setName("");
+        setComment("");
     };
 
 
     return (
         <div className="taskEntry" >
-           
-            <input placeholder="Enter your name" value={name}
-                onChange={(e) => setName(e.target.value)} />
-            
-            <select placeholder="Select a task" value={taskCat}
-                onChange={(e) => setTaskCat(e.target.value)} >
+           <form onSubmit={handleSubmit}>
+                <input placeholder="Enter your name" value={name}
+                    onChange={(e) => setName(e.target.value)} />
                 
-                <option value="catAdmin">Admin</option>
-                <option value="catBreak">Break</option>
-                <option value="catProject">Project</option>
-                <option value="catMeeting">Meeting</option>
-            </select>
+                <select placeholder="Select a task" value={taskCat}
+                    onChange={(e) => setTaskCat(e.target.value)} >
+                    
+                    <option value="catAdmin">Admin</option>
+                    <option value="catBreak">Break</option>
+                    <option value="catProject">Project</option>
+                    <option value="catMeeting">Meeting</option>
+                </select>
 
-            <input placeholder="Comment" value={comment}
-                onChange={(e) => setComment(e.target.value)} />
+                <input placeholder="Comment" value={comment}
+                    onChange={(e) => setComment(e.target.value)} />
 
 
-            <button onClick={handleSubmit}>Submit</button>
-            
+                <button>Submit</button>
+            </form>
         </div>
     );
 }
