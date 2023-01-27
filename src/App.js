@@ -1,9 +1,9 @@
 import './App.css';
 import { Link, Routes, Route } from 'react-router-dom';
 // import TaskData from './components/TaskData';
-import TaskEntry1 from './components/TaskEntry1';
-// import TaskMain from './components/TaskMain';
-// import TaskHolder from './components/TaskHolder';
+import TaskEntry1 from './components/TaskEntry';
+
+import TaskHolder from './components/TaskHolder';
 // import TaskFirst from './components/TaskFirst';
 
 
@@ -19,7 +19,7 @@ function App() {
       <nav>
         <ul className='links'>
           <button className='buttonLink'><Link to="/entry">Task Entry</Link></button>
-          <button className='buttonLink'><Link to="/edit">Task Edit</Link></button>
+          <button className='buttonLink'><Link to="/edit">Task View</Link></button>
           
         </ul>
       </nav>
@@ -33,7 +33,7 @@ function App() {
 
       <Routes>
         <Route path="/entry" element= {<TaskEntry1 />} />
-        {/* <Route path="/edit" element={<TaskHolder />} /> */}
+        <Route path="/edit" element={<TaskHolder />} /> 
 
       </Routes>
    </main>

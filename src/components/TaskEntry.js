@@ -1,100 +1,90 @@
-// import React from "react";
+import React from "react";
+import { useState,useEffect } from 'react';
+
 // import { useState,useEffect } from "react";
-// import firebase from '../firebase';
-// import { onValue, ref, getDatabase, push } from 'firebase/database';
+import firebase from '../firebase';
+import { onValue, ref, getDatabase, push } from 'firebase/database';
 
 
 
-// const TaskEntry = () => {
-//     const taskTest = {
-//         taskUser: "",
-//         taskCategory: "",
-//         comment: ""
-//     };
-//     const [tasks, setTasks] = useState([taskTest]);
+function App() {
 
-//     const [nameTT , setNameTT] = useState("");
-//     const [categoryTT, setCategoryTT] = useState("");
-//     const [commentTT, setCommentTT] = useState("");
+    //const  [tasks, setTasks] = useState([]);
+    const [name, setName] = useState();
+    const [taskCat, setTaskCat] = useState();
+    const [comment, setComment] = useState();
 
-//     useEffect(() => {
-//         const db = getDatabase(firebase);
-//         const dbRef = ref(db);
+    useEffect(() => {
 
-//         onValue(dbRef, (dbResponse) => {
-//             const dbValue = dbResponse.val();
-//             //console.log(dbValue);
+        const db = getDatabase(firebase);
+        const dbRef = ref(db);
 
-//             const arrayTasks = [];
+        onValue(dbRef, (dbResponse) => {
+            const dbValue = dbResponse.val();
+            console.log(dbValue)
+            const arrayTasks = [];
 
-//             for (let propertyKey in dbValue) {
-//                 console.log(dbValue[propertyKey]);
+                for (let propertyKey in dbValue) {
 
-//                 arrayTasks.push({
-//                     title:dbValue[propertyKey],
-//                     id:propertyKey,
-//                     userName: nameTT, 
-//                     userTask: categoryTT, 
-//                     userComment: commentTT
+                console.log(dbValue[propertyKey]);
+            
+                arrayTasks.push({
+                    title: dbValue[propertyKey],
+                    id: propertyKey
+                });
 
-//                 });
+            }
+            setName(arrayTasks);
 
-//             };
-//             setTasks(arrayTasks);
-//         })
-//     }, []);
+        });
 
+    }, []);
 
-//     const handleChange = (event) => {
-//         setTasks(event.target.value);
-//         setNameTT(event.target.value);
-//         setCategoryTT(event.target.value);
-//         setCommentTT(event.target.value);
-//     }
+        const handleSubmit = (event) => {
+            event.preventDefault();
+        const db = getDatabase(firebase);
+        const dbRef = ref(db);
 
-//     const handleSubmit = (event) => {
-//         event.preventdefault();
-//         const db = getDatabase(firebase);
-//         const dbRef = ref(db);
+        const tasks = {
+            userName: name,
+            userTask: taskCat,
+            userComment: comment
+        }
 
-//         const tasks = {userName: {nameTT}, userTask: {categoryTT}, userComment: {commentTT}}
-
-//         push(dbRef,tasks);
-
-//         setTasks("");
-//     };
+        push(dbRef,tasks);
+            
+        setName("");
+        setComment("");
+    };
 
 
+    return (
+        <div className="taskEntry" >
+            <h3>Task Entry</h3>
 
-//     return (
-//         <>
-//             <h3>Enter Task</h3>
-//             <form className="taskForm" onSubmit={handleSubmit}>
+            <div className="taskForm">
+                <form onSubmit={handleSubmit}>
+                    <input placeholder="Enter your name" 
+                        onChange={(e) => setName(e.target.value)} />
+                    
+                    <select placeholder="Select a task" value={taskCat}
+                        onChange={(e) => setTaskCat(e.target.value)} >
+                        
+                        <option value="Admin">Admin</option>
+                        <option value="Break">Break</option>
+                        <option value="Project">Project</option>
+                        <option value="Meeting">Meeting</option>
+                    </select>
 
-//                 <label html="taskUser">Enter Your Name</label>
-//                 <input type="text" name="taskUser" value={nameTT} onChange={handleChange} />
-
-//                 {/* Task Category Selection */}
-//                 <label html="taskCategory" >Choose a task category</label>
-//                 <select name="taskCategory" id="taskCategory" value={categoryTT} onChange={handleChange}>
-//                     <option value="placeholder" disabled>Select a task</option>
-//                     <option value="catAdmin">Admin</option>
-//                     <option value="catBreak">Break</option>
-//                     <option value="catProject">Project</option>
-//                     <option value="catMeeting">Meeting</option>
-//                 </select>
+                    <input placeholder="Comment" value={comment}
+                        onChange={(e) => setComment(e.target.value)} />
 
 
-//                 <textarea rows="4" cols="50" name="comment" form="userForm" value={commentTT} onChange={handleChange}>
-//                     Enter comment here</textarea>
+                    <button className="entrySubmit">Submit</button>
+                </form>
+            </div>
+        </div>
+    );
+}
 
-//                 <button type="submit">Submit</button>
-//             </form>
-
-//             <ul>
-//             </ul>
-//         </>
-//     )
-// }
-
-// export default TaskEntry;
+export default App;
