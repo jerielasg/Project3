@@ -45,6 +45,12 @@
   text-align: center;
 
 }
+
+.intro p {
+  font-size: 30px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: #ffffff;
+}
 h1 {
   font-family: Verdana, Geneva, Tahoma, sans-serif ;
   color: #f2f2f2;
@@ -69,17 +75,36 @@ h5 {
 
 li {
   list-style-type: none;
-
 }
-.taskEntry form input, select, textarea{
+/***** TASK ENTRY *****/
+.links a {
+  text-decoration: none;
+}
+
+.links a:visited {
+  color: #f2f2f2;
+}
+
+.links a:hover {
+  color: #f2f2f2;
+  font-size: 40px ;
+}
+
+.taskEntry form input, select{
   text-align: center;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: 40px;
   display: flex;
   flex-direction: row;
   margin-bottom: 20px;
-  
+  width: 100%;
+    
 }
+
+.formComment input {
+  padding-bottom: 50px;
+}
+
 
 .taskEntry h3 {
   text-align: center;
@@ -104,13 +129,31 @@ li {
   font-size: 30px;
 }
 
+.entrySubmit {
+  background-color: #52ab98;
+  padding: 20px 20px 20px 20px;
+  width: 100%;
+  font-size: 30px;
+  color: #f2f2f2;
+
+}
+
 .taskForm {
   display: flex;
   justify-content: center;
-  
-  
+    
+}
+
+.taskForm label {
+  margin-bottom: 20px;
+  font-size: 35px;
+  color:#2b6777;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   
 }
+
+
+/***** TASK VIEW *****/
 .taskHeader {
   display: flex;
 }
@@ -129,11 +172,6 @@ li {
   padding-left: 20px;
   font-size: 20px;
   
-}
-
-.entrySubmit {
-  font-size: 35px;
-  background-color:#c8d8e4 ;
 }
 
 .taskHolder {

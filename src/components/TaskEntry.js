@@ -64,10 +64,12 @@ function App() {
 
             <div className="taskForm">
                 <form onSubmit={handleSubmit}>
-                    <input placeholder="Enter your name" 
+                    <label for="formName">Enter your Name</label>
+                    <input id="formName" placeholder="Enter your name" 
                         onChange={(e) => setName(e.target.value)} />
                     
-                    <select placeholder="Select a task" value={taskCat}
+                    <label for="formTask">Select a Task</label>
+                    <select id="formTask" placeholder="Select a task" value={taskCat}
                         onChange={(e) => setTaskCat(e.target.value)} >
                         
                         <option value="Admin">Admin</option>
@@ -76,7 +78,8 @@ function App() {
                         <option value="Meeting">Meeting</option>
                     </select>
 
-                    <input placeholder="Comment" value={comment}
+                    <label for="formComment">Enter a comment/description</label>
+                    <input id="formComment" placeholder="Comment" value={comment}
                         onChange={(e) => setComment(e.target.value)} />
 
 

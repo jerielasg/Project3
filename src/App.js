@@ -14,7 +14,7 @@ function App() {
       <div className='intro'>
         <h1>Welcome to the Task Tracker</h1>
         <h2>Instructions</h2>
-        <p>Click on one of the links to get started. Enter your information and click the submit button</p>
+        <p>Click on one of the links to get started.</p>
       </div>
       <nav>
         <ul className='links'>
