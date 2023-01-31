@@ -28,16 +28,16 @@ const TaskHolder = () => {
 
             }
             setTaskHolder(arrayTasks);
-            console.log(arrayTasks)
+            //console.log(arrayTasks)
 
         });
 
     }, []);
 
-    const handleDelete = (id) => {
+    const handleDelete = (title) => {
 
         const database = getDatabase(firebase);
-        const dbRef = ref(database, `/${id}`);
+        const dbRef = ref(database, `/${title}`);
        
         remove(dbRef)
     }
@@ -45,32 +45,26 @@ const TaskHolder = () => {
     return (
         <div className="taskHolder">
             <h3>Task View</h3>
-            <ul>
-                <li className="taskHeader">
-                    <h5>Delete</h5>
-                    <h5>Name</h5>
-                    <h5>Task</h5>
-                    <h5>Comment</h5>
-                </li>
+            <table id="taskData">
+                <tr>
+                    <th>Delete</th>
+                    <th>Name</th>
+                    <th>Task</th>
+                    <th>Comment</th>
+                </tr>
                 {taskHolder.map((task) => {
                     //console.log(task)
                     return (
-                        <li className="taskFeed">
-                            <button onClick={() => handleDelete(task.id)}>🗑️</button>
-                            <p>{task.title.userName}</p>
-                            <p>{task.title.userTask}</p>
-                            <p>{task.title.userComment}</p>
-                        </li>
+                        <tr>
+                            <td><button onClick={() => handleDelete(task.id)}>🗑️</button></td>
+                            <td>{task.title.userName}</td>
+                            <td>{task.title.userTask}</td>
+                            <td>{task.title.userComment}</td>
+                        </tr>
                     )
                 })}
-                <li>
-                    
-                    
-                    
-                </li>
-            </ul>
 
-            {/* Record view*/}
+            </table>
 
         </div>
     )

@@ -1,10 +1,10 @@
 import './App.css';
 import { Link, Routes, Route } from 'react-router-dom';
-// import TaskData from './components/TaskData';
+
 import TaskEntry1 from './components/TaskEntry';
 
 import TaskHolder from './components/TaskHolder';
-// import TaskFirst from './components/TaskFirst';
+
 
 
 function App() {
@@ -19,21 +19,14 @@ function App() {
       <nav>
         <ul className='links'>
           <button className='buttonLink'><Link to="/entry">Task Entry</Link></button>
-          <button className='buttonLink'><Link to="/edit">Task View</Link></button>
+          <button className='buttonLink'><Link to="/view">Task View</Link></button>
           
         </ul>
       </nav>
-    
-    
-      {/* <TaskMain />
-      <TaskEntry />
-      <TaskHolder />
-      <TaskData /> */}
-      
-
+        
       <Routes>
         <Route path="/entry" element= {<TaskEntry1 />} />
-        <Route path="/edit" element={<TaskHolder />} /> 
+        <Route path="/view" element={<TaskHolder />} /> 
 
       </Routes>
    </main>

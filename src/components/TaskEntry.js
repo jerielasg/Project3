@@ -49,12 +49,29 @@ function App() {
             userName: name,
             userTask: taskCat,
             userComment: comment
+            
+        };
+        // if (!event.target[0].value && !event.target[2].value){alert("Please enter a name and a comment")} 
+        // else {
+        //     setName("");
+        //     setComment("");
+        //     push(dbRef,tasks);
+        // }
+            if (!event.target[0].value && !event.target[2].value ) {alert("Please enter a name and a comment")}
+        else {
+
+            push(dbRef, tasks);
+            setName("");
+            setComment("");   
         }
 
-        push(dbRef,tasks);
+        // push(dbRef, tasks);
+        // setName("");
+        // setComment("");
+
+        
             
-        setName("");
-        setComment("");
+        
     };
 
 
@@ -64,11 +81,11 @@ function App() {
 
             <div className="taskForm">
                 <form onSubmit={handleSubmit}>
-                    <label for="formName">Enter your Name</label>
+                    {/* <label for="formName">Enter your Name</label> */}
                     <input id="formName" placeholder="Enter your name" 
                         onChange={(e) => setName(e.target.value)} />
                     
-                    <label for="formTask">Select a Task</label>
+                    {/* <label for="formTask">Select a Task</label> */}
                     <select id="formTask" placeholder="Select a task" value={taskCat}
                         onChange={(e) => setTaskCat(e.target.value)} >
                         
@@ -78,7 +95,7 @@ function App() {
                         <option value="Meeting">Meeting</option>
                     </select>
 
-                    <label for="formComment">Enter a comment/description</label>
+                    {/* <label for="formComment">Enter a comment/description</label> */}
                     <input id="formComment" placeholder="Comment" value={comment}
                         onChange={(e) => setComment(e.target.value)} />
 
