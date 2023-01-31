@@ -24,14 +24,6 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
 
 /* #2b6777(darkTeal) #c8d8e4(lighter teal) #ffffff(white) #f2f2f2(off White) #52ab98(green) */
 
@@ -72,7 +64,7 @@ h5 {
 li {
   list-style-type: none;
 }
-/***** TASK ENTRY *****/
+/***** BUTTON LINKS *****/
 .links a {
   text-decoration: none;
 }
@@ -85,7 +77,7 @@ li {
   color: #f2f2f2;
   font-size: 40px ;
 }
-
+/***** TASK ENTRY *****/
 .taskEntry form input, select{
   text-align: center;
   font-family: Arial, Helvetica, sans-serif;
@@ -180,4 +172,44 @@ li {
   text-align: center;
   background-color: #52ab98;
   color: #ffffff;
+}
+
+
+/***** Media Styles  *****/
+
+@media (max-width: 900px) {
+.intro p {
+    font-size: 20px;
+
+  }
+  h1 {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: #f2f2f2;
+    font-size: 30px;
+  }
+
+  h2 {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: #ffffff;
+    font-size: 30px;
+  }
+  .taskEntry form input,
+  select {
+    font-size: 20px;
+  }
+  .buttonLink {
+    background-color: #52ab98;
+    padding: 25px 25px 25px 25px;
+    margin-left: 30px;
+    margin-right: 30px;
+    font-size: 20px;
+  }
+  .entrySubmit {
+    background-color: #52ab98;
+    padding: 15px 15px 15px 15px;
+    width: 100%;
+    font-size: 20px;
+    color: #f2f2f2;
+
+  }
 }
