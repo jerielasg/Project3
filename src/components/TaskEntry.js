@@ -1,7 +1,6 @@
 import React from "react";
 import { useState,useEffect } from 'react';
 
-// import { useState,useEffect } from "react";
 import firebase from '../firebase';
 import { onValue, ref, getDatabase, push } from 'firebase/database';
 
@@ -9,7 +8,7 @@ import { onValue, ref, getDatabase, push } from 'firebase/database';
 
 function App() {
 
-    //const  [tasks, setTasks] = useState([]);
+    // Use State to grab user input
     const [name, setName] = useState();
     const [taskCat, setTaskCat] = useState();
     const [comment, setComment] = useState();
@@ -39,7 +38,7 @@ function App() {
         });
 
     }, []);
-
+    // function to push entries into firebase
         const handleSubmit = (event) => {
             event.preventDefault();
         const db = getDatabase(firebase);
@@ -51,27 +50,15 @@ function App() {
             userComment: comment
             
         };
-        // if (!event.target[0].value && !event.target[2].value){alert("Please enter a name and a comment")} 
-        // else {
-        //     setName("");
-        //     setComment("");
-        //     push(dbRef,tasks);
-        // }
+     // alerts when user does not input a name
             if (!event.target[0].value && !event.target[2].value ) {alert("Please enter a name and a comment")}
         else {
-
+            {alert("Submitted")}
             push(dbRef, tasks);
             setName("");
             setComment("");   
         }
 
-        // push(dbRef, tasks);
-        // setName("");
-        // setComment("");
-
-        
-            
-        
     };
 
 

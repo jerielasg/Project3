@@ -23,7 +23,7 @@ function App() {
           
         </ul>
       </nav>
-        
+      {/* Route Links to component */}
       <Routes>
         <Route path="/entry" element= {<TaskEntry1 />} />
         <Route path="/view" element={<TaskHolder />} /> 
