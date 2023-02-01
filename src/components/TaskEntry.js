@@ -53,7 +53,7 @@ function App() {
      // alerts when user does not input a name
             if (!event.target[0].value && !event.target[2].value ) {alert("Please enter a name and a comment")}
         else {
-            {alert("Submitted")}
+            alert("Submitted");
             push(dbRef, tasks);
             setName("");
             setComment("");   
