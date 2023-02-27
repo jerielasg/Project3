@@ -6,11 +6,11 @@ import { onValue, ref, getDatabase, push } from 'firebase/database';
 
 
 
-function App() {
+function TaskEntry() {
 
     // Use State to grab user input
     const [name, setName] = useState();
-    const [taskCat, setTaskCat] = useState();
+    const [taskCat, setTaskCat] = useState("Admin");
     const [comment, setComment] = useState();
 
     useEffect(() => {
@@ -94,4 +94,4 @@ function App() {
     );
 }
 
-export default App;
+export default TaskEntry;

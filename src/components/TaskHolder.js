@@ -30,7 +30,7 @@ const TaskHolder = () => {
            
 
         });
-
+        
     }, []);
     // function to delete entries
     const handleDelete = (title) => {
@@ -54,7 +54,7 @@ const TaskHolder = () => {
                 </tr>
                 {taskHolder.map((task) => {
                                     return (
-                    <tr>
+                    <tr key={task.id}>
                         <td><button onClick={() => handleDelete(task.id)}>🗑️</button></td>
                         <td>{task.title.userName}</td>
                         <td>{task.title.userTask}</td>

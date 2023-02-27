@@ -1,7 +1,7 @@
 import './App.css';
 import { Link, Routes, Route } from 'react-router-dom';
 
-import TaskEntry1 from './components/TaskEntry';
+import TaskEntry from './components/TaskEntry';
 
 import TaskHolder from './components/TaskHolder';
 
@@ -25,7 +25,7 @@ function App() {
       </nav>
       {/* Route Links to component */}
       <Routes>
-        <Route path="/entry" element= {<TaskEntry1 />} />
+        <Route path="/entry" element= {<TaskEntry />} />
         <Route path="/view" element={<TaskHolder />} /> 
 
       </Routes>
